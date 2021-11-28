@@ -10,20 +10,20 @@ public class ShortMadLibs {
         int storyParameterBegin;
         int storyParameterEnd;
         
-        //TODO add comment
+        //Looks for the first '[' to include the fragment (i.e. noun, verb, etc.)
         fragmentEnd = madlibStory.indexOf( '[', fragmentBegin);
         while ( fragmentEnd > fragmentBegin){
             
-            //TODO add comment
+            //Adds the first fragment to the story
             completedStory += madlibStory.substring( fragmentBegin, fragmentEnd);
             
-            //TODO add comment         
+            //updates the count for the number of complete parameters (called fragments)         
             storyParameterBegin = fragmentEnd + 1;  
             
-            //TODO add comment
+            //Looks for the last ']' of each fragment
             storyParameterEnd = madlibStory.indexOf( ']', storyParameterBegin);
             
-            //TODO add comment
+            //Breaks the loop if there is a missing ']'
             if ( storyParameterEnd <= storyParameterBegin) {
                 System.err.println("Error, unmatched [ at index " + storyParameterBegin);
                 fragmentBegin = storyParameterBegin;
@@ -41,12 +41,11 @@ public class ShortMadLibs {
             // adds the input argument to the end of the completedStory String
             completedStory += argument;
             
-            //TODO add comment
             fragmentBegin = storyParameterEnd + 1;
             fragmentEnd = madlibStory.indexOf( '[', fragmentBegin);
         }
         
-        //TODO add comment
+        //complete the story
         completedStory += madlibStory.substring(fragmentBegin);
         return completedStory;
     }
