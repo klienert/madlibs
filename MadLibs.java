@@ -36,8 +36,8 @@ public class MadLibs {
 			}
 			sc.close();
 		} catch (FileNotFoundException e) {
-			System.out.println("Error occured: " + fileName + " does not exist or does not work.");
-			e.printStackTrace();
+			System.out.println("Error occured: " + '\"' + fileName +  '\"' + " does not exist or does not work.");
+			// e.printStackTrace();
 		}
         return result; 
 	}
@@ -117,6 +117,8 @@ public class MadLibs {
 	 * a Madlib's file, reads the file, prompts for parameter 
 	 * values and replaces the parameters with the values.
 	 * @throws IOException
+	 * 
+	 * UPDATE - Added an option list for user to select stories
 	 */
 	public static void main(String[] args) throws IOException {
 		Scanner input = new Scanner( System.in);
