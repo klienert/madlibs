@@ -27,7 +27,6 @@ public class MadLibs {
 	    String result = "";
 		try {
 			File file = new File(fileName);
-			// InputStream ins = new FileInputStream(fileName);
 			Scanner sc = new Scanner(file);
 			//read line by line
 			while (sc.hasNextLine()) {
@@ -111,26 +110,21 @@ public class MadLibs {
         completedStory += madlibStory.substring(fragmentBegin);
         return completedStory;
     }
-	
+
 	/**
 	 * The main method that prompts the user for the name of 
 	 * a Madlib's file, reads the file, prompts for parameter 
 	 * values and replaces the parameters with the values.
 	 * @throws IOException
-	 * 
-	 * UPDATE - Added an option list for user to select stories
 	 */
 	public static void main(String[] args) throws IOException {
 		Scanner input = new Scanner( System.in);
-		System.out.print("Enter the name of a Madlibs file. " );
-		System.out.println("Options include: ");
-		System.out.println("  1) solarSystem.txt");
-		System.out.println("  2) superheroMovie.txt");
-		System.out.println("  3) theRaven.txt");
-		System.out.println("  4) washYourFace.txt");
+		System.out.println("Enter the name of a Madlibs file. You have the following options: ");
+		System.out.println(" 1) solarSystem.txt\n 2) superheroMovie.txt\n 3) theRaven.txt\n 4) washYourFace.txt");
 		String filename = input.nextLine();
-		
+							
 		String contents = readFile( filename);
+
 		if ( contents != null) {
 			String completedStory = promptForReplacements( input, contents);
 			System.out.println("Press Enter to see completed story.");
